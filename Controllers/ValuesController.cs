@@ -10,11 +10,22 @@ namespace meetup_api.Controllers
     [ApiController]
     public class ValuesController : ControllerBase
     {
+        public class Val
+        {
+            public Val(string n, int i)
+            {
+                name = n;
+                id = i;
+            }
+            public string name {get; set;}
+            public int id {get; set;}
+        }
+
         // GET api/values
         [HttpGet]
-        public ActionResult<IEnumerable<string>> Get()
+        public ActionResult<Val> Get()
         {
-            return new string[] { "value1", "value2" };
+            return new Val("meetup", 11);
         }
 
         // GET api/values/5
